@@ -1,7 +1,8 @@
-from ctypes import util
 from tkinter import *
+from cell import Cell
 import settings
 import utils
+
 
 root = Tk()
 
@@ -38,6 +39,13 @@ center_frame.place(
   x=utils.width_percentage(25),
   y=utils.height_percentage(25)
 )
+
+# Adding cells in the center frame
+for x in range(settings.GRID_SIZE):
+  for y in range(settings.GRID_SIZE):
+      cell = Cell()
+      cell.create_btn_object(center_frame)
+      cell.cell_btn_object.grid(column=x, row=y)
 
 #Load the window
 root.mainloop()
