@@ -8,4 +8,14 @@ class Cell:
   
   def create_btn_object(self, location):
     btn = Button(location, text="Text")
+    btn.bind('<Button-1>', self.left_click_actions)
+    btn.bind('<Button-2>', self.right_click_actions)
     self.cell_btn_object = btn
+
+  def left_click_actions(self, event):
+    print(event)
+    print("The left mouse button was clicked.")
+
+  def right_click_actions(self, event):
+    print(event)
+    print("The right mouse button was clicked.")
