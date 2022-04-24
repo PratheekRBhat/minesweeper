@@ -1,4 +1,5 @@
 from tkinter import *
+import xdrlib
 from cell import Cell
 import settings
 import utils
@@ -43,9 +44,11 @@ center_frame.place(
 # Adding cells in the center frame
 for x in range(settings.GRID_SIZE):
   for y in range(settings.GRID_SIZE):
-      cell = Cell()
+      cell = Cell(x, y)
       cell.create_btn_object(center_frame)
       cell.cell_btn_object.grid(column=x, row=y)
+
+Cell.randomize_mines()
 
 #Load the window
 root.mainloop()
